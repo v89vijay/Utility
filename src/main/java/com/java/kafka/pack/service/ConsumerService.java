@@ -21,6 +21,7 @@ public class ConsumerService {
 	
 	@KafkaListener(topics = ConsumerAppConstants.KAFKA_TOPIC_ORDER,groupId="jp-group-order")
 	public void orderDecodeConsumer(String encMsg) {
+		System.out.println("creating ObjectMapper ");
 		ObjectMapper mapper= new ObjectMapper(); 
 		Decoder dec = Base64.getDecoder();
 		String decMsg = new String(dec.decode(encMsg));
